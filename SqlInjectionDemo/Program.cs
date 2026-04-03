@@ -34,6 +34,12 @@ public class Program
             {
                 Console.WriteLine("Access forbidden.");
             }
+
+            // Solutin: Use parameterized queries to prevent SQL injection attacks.
+            SqlCommand sqlCommand2 = new SqlCommand(
+               "SELECT COUNT(*) FROM [Users] WHERE Username = @Username AND Password = @Password;", sqlConnection);
+            sqlCommand2.Parameters.AddWithValue("@Username", username);
+            sqlCommand2.Parameters.AddWithValue("@Password", password);
         }
     }
 }
