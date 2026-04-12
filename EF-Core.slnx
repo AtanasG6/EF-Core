@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="AdoNetDemo/AdoNetDemo.csproj" />
+  <Project Path="CodeFirstApproach/CodeFirstApproach.csproj" Id="d39e0541-bc16-4d82-90f9-7ebdf6024152" />
   <Project Path="DbFirstApproach/DbFirstApproach.csproj" Id="3fc8f5bb-81ec-4b4e-aa2a-a41e9920ee0f" />
   <Project Path="SqlInjectionDemo/SqlInjectionDemo.csproj" />
 </Solution>
