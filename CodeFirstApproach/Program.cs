@@ -19,6 +19,9 @@ public class Program
 
         dbContext.Courses.Remove(course);
 
+        // If EF Core does not support sth like RANK, ROW_NUMBER, etc., we can always execute raw SQL queries 
+        // dbContext.Database.ExecuteSqlRaw("DELETE FROM Courses WHERE Id = 1");
+
         dbContext.SaveChanges();
     }
 }
