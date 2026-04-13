@@ -2,6 +2,7 @@
 
 namespace CodeFirstApproach.Models;
 
+// The DbContext class relates to the Unit of Work pattern.
 public class StudentsDbContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -22,6 +23,7 @@ public class StudentsDbContext : DbContext
         });
     }
 
+    // The DbSet relates to the Repository pattern.
     public DbSet<Student> Students { get; set; }
     public DbSet<Course> Courses { get; set; }
     public DbSet<Grade> Grades { get; set; }

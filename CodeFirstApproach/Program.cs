@@ -13,6 +13,9 @@ public class Program
             new Course { Name = "SQL Server" }
             );
 
+        bool exists = dbContext.Courses.Any(c => c.Name.StartsWith("Entity"));
+        int coursesCount = dbContext.Courses.Count();
+
         // ! - null forgiving operator, because we are sure that there is a course with Id = 1
         Course course1 = dbContext.Courses.FirstOrDefault(c => c.Id == 1)!;
         course1.Name = "Atanas changed the name!!!";
@@ -28,6 +31,15 @@ public class Program
 
         // Using the navigational property 
         dbContext.Students.Where(x => x.Grades.Average(g => g.Value) > 4.50M);
+
+        // Old Query Syntax
+        var courses = from c in dbContext.Courses
+                      where c.Name.StartsWith("Entity")
+                      select c;
+
+        // New Method Syntax
+        var courses2 = dbContext.Courses.Where(c => c.Name.StartsWith("Entity"));
+
 
         dbContext.SaveChanges();
     }
