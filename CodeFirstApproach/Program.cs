@@ -26,6 +26,9 @@ public class Program
         Course course2 = dbContext.Courses.FirstOrDefault(c => c.Id == 2)!;
         course2.Name = "Atanas changed the name!!!";
 
+        // Using the navigational property 
+        dbContext.Students.Where(x => x.Grades.Average(g => g.Value) > 4.50M);
+
         dbContext.SaveChanges();
     }
 }
