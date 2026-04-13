@@ -51,6 +51,14 @@ public class Program
             Value = 5.50M
         });
 
+        var student = dbContext.Students.FirstOrDefault();
+        student.FirstName = "Test";
+        var student2 = dbContext.Students.FirstOrDefault();
+        Console.WriteLine(student2.FirstName); // This will print "Test" because student and student2 are the same object in memory, they are both tracked by the ChangeTracker, and they both reference the same record in the database. When we change the FirstName property of student, it also changes the FirstName property of student2 because they are the same object.
+
+        // Alternative
+        // var student2 = new StudentsDbContext().Students.FirstOrDefault();
+
         dbContext.SaveChanges();
     }
 }
