@@ -40,6 +40,16 @@ public class Program
         // New Method Syntax
         var courses2 = dbContext.Courses.Where(c => c.Name.StartsWith("Entity"));
 
+        // This will insert 3 new records in the database
+        // 1. A new Student with FirstName = "Stoyan" and LastName = "Shopov"
+        // 2. A new Course with Name = "C# OOP"
+        // 3. A new Grade with Value = 5.50M, StudentId = the Id of the newly created Student and CourseId = the Id of the newly created Course
+        dbContext.Grades.Add(new Grade
+        {
+            Student = new Student { FirstName = "Stoyan", LastName = "Shopov" },
+            Course = new Course { Name = "C# OOP" },
+            Value = 5.50M
+        });
 
         dbContext.SaveChanges();
     }
