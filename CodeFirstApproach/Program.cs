@@ -59,6 +59,7 @@ public class Program
         // Alternative
         // var student2 = new StudentsDbContext().Students.FirstOrDefault();
 
+        // This works like a transaction, if any of the operations fail, the whole transaction will be rolled back and no changes will be made to the database
         dbContext.SaveChanges();
     }
 }
